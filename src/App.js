@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useMemo, useState} from "react";
 import './App.css';
 
-const variants = [0, 1];
+const variants = [0, 1, 2];
 function Radio() {
 
      const [value, setValue] = useState(0);
@@ -15,10 +15,14 @@ function Radio() {
              return array.filter(elem => elem % 2 === 0);
         }
 
-        if (value === variants[1]) {
+        else if (value === variants[1]) {
             let array = (""+text).split("").map(Number)
             return array.filter(elem => elem % 2 !== 0);
 
+        }
+        else if (value === variants[2]){
+            let array = (""+text).split("").map(Number)
+            return array;
         }
     }
 
@@ -35,7 +39,7 @@ function Radio() {
                 name="radioName"
                 checked={value === 0}
                 onChange={() => setValue(0)} />
-            To be
+            even
         </label>
         <label>
             <input
@@ -43,10 +47,18 @@ function Radio() {
                 name="radioName"
                 checked={value === 1}
                 onChange={() => setValue(1)} />
-            or not to be
+            not even
         </label>
-        You selected: {value}
-        <br/><br/>{getFiltered().join(', ')}
+        <label>
+            <input
+                type="radio"
+                name="radioName"
+                checked={value === 2}
+                onChange={() => setValue(2)} />
+            all
+        </label>
+
+        <br/>Numbers:<br/>{getFiltered().join(', ')}
     </>;
 }
 
