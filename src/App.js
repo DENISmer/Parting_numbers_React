@@ -11,17 +11,17 @@ function Radio() {
     function getFiltered() {
 
         if (value === variants[0]) {
-            let array = ('' + text).split('');
+            let array = ('' + text).split(' ');
              return array.filter(elem => elem % 2 === 0);
         }
 
         else if (value === variants[1]) {
-            let array = (""+text).split("").map(Number)
+            let array = (""+text).split(" ").map(Number)
             return array.filter(elem => elem % 2 !== 0);
 
         }
         else if (value === variants[2]){
-            let array = (""+text).split("").map(Number)
+            let array = (""+text).split(" ").map(Number)
             return array;
         }
     }
